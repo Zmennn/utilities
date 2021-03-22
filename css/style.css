@@ -1,0 +1,109 @@
+/* Комбинации селекторов */
+
+/* Селектор потомка - пробел 
+ Селектор ребёнка - “>”
+ Селектор соседа - “+”
+ Селектор siblings - “~”
+ Универсальный селектор - “*”
+ Селектор начала строки  - “^”
+ Селектор окончания строки  - “$”*/
+
+.section a {
+	color: red;
+}
+section > p {
+	color: red;
+}
+h2 + p {
+	color: red;
+} 
+ h2 ~ p {
+	color: red;
+}
+.section * {
+	color: red;
+} 
+a[href^="https"] {
+	color: green;
+}
+a[href$=".html"] {
+	color: plum;
+} 
+
+/* Класс скрывающий элементы */
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+/* Стили для box-sizing которые стоит использовать по-умолчанию */
+html {
+	box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+/* Стили для обнуления верхних отступов у элементов */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin-top: 0;
+}
+
+/* Класс для обнуления базовых свойств у списков (ul) */
+.list {
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+/* Класс для обнуления базовых свойств у ссылок */
+.link {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+/* Свойства для корректного отображения картинок */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* простое создание сеток на флекс-боксах */
+/* 30px условное расстояние между элементами сетки,выставляется с дизайна */
+
+/* селектор контейнера сетки */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+/* селектор элемента сетки */
+.grid-item {
+  
+  flex-basis: calc((100% - 30px * var(--grid-item)) / var(--grid-item));
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+/* задание кол-ва элементов в 1 ряду сетки */
+.team-item {
+  --grid-item: 3;
+}
